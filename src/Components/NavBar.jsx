@@ -9,9 +9,10 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 export default function NavBar() {
     return (
-        <div className='relative'>
+        <div className='relative mt-10'>
+            <div className=" m-auto absolute -top-5 left-0 right-0 w-[90%] h-5 bg-green-400 rounded-t-full"></div>
 
-            <div className="w-full flex items-center justify-between mt-5 h-20 shadow-md rounded-2xl p-4 z-50 ">
+            <div className="w-full flex items-center justify-between mt-2 h-20 shadow rounded-xl p-4 z-50 ">
 
                 {/* RIGHT */}
 
@@ -37,7 +38,7 @@ export default function NavBar() {
                 <div className="flex items-center">
                     {/* ACCOUNTE && CART */}
                     <div className="flex items-center gap-x-10 child:transition-all">
-                        <Link to={'/'} className='flex items-center gap-x-1 text-gray-500 hover:text-green-400' >
+                        <Link to={'/'} className='flex items-center gap-x-1 text-gray-400 hover:text-green-400' >
                             <PersonOutlinedIcon />
                             <span>حساب کاربری</span>
                         </Link>
@@ -52,8 +53,18 @@ export default function NavBar() {
 
 
             </div>
-
-
+            <div className=" m-auto absolute -bottom-12 left-0 right-0 w-[80%] h-12 bg-gray-200 rounded-b-xl flex items-center justify-center py-4">
+                <ul className='flex gap-x-4 child:text-lg child:text-gray-600'>
+                    <Link to={'/'} className='flex items-center'>
+                        برنامه نویسی
+                        <KeyboardArrowDownIcon />
+                    </Link>
+                    <Link to={'/'} className='flex items-center'>
+                        برنامه نویسی
+                        <KeyboardArrowDownIcon />
+                    </Link>
+                </ul>
+            </div>
         </div>
     )
 }
