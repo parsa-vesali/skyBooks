@@ -13,7 +13,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 export default function MainHeader() {
   return (
-    <div className='grid grid-cols-12 gap-6 sm:gap-7 mt-7 lg:mt-20'>
+    <div className='hidden grid grid-cols-12 gap-6 sm:gap-7 mt-7 lg:mt-20'>
       {/* SLIDER */}
 
       <div className="col-span-12 lg:col-span-8 overflow-hidden">
