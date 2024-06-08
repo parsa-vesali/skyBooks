@@ -27,5 +27,13 @@
         visibility: visible;
     }
 
+    .swiper-pagination {
+        top: 24rem !important;
+    }
+    .swiper-pagination-clickable {
+        top: 24rem !important;
+    }
+
+    
 }
 
