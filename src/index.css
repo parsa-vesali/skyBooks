@@ -27,13 +27,6 @@
         visibility: visible;
     }
 
-    .swiper-pagination {
-        top: 24rem !important;
-    }
-    .swiper-pagination-clickable {
-        top: 24rem !important;
-    }
-
     .search-bar-active {
         border: 2px solid red;
     }
