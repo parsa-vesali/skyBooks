@@ -34,6 +34,9 @@
         top: 24rem !important;
     }
 
+    .search-bar-active {
+        border: 2px solid red;
+    }
     
 }
 
