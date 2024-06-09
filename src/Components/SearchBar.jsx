@@ -26,8 +26,8 @@ export default function SearchBar() {
 
     return (
         <>
-            <div className='relative z-50'>
-                <div className={`relative flex justify-end p-1.5 bg-zinc-100 w-full lg:w-[500px] ${query ? 'rounded-b-none rounded-t-lg' : 'rounded-lg'}`}>
+            <div className='relative z-40'>
+                <div className={`relative flex justify-end p-1.5 bg-zinc-100 w-full lg:w-[400px]  xl:w-[500px] ${query ? 'rounded-b-none rounded-t-lg' : 'rounded-lg'}`}>
                     <input
                         onChange={(e) => setQuery(e.target.value)}
                         value={query}
@@ -62,7 +62,7 @@ export default function SearchBar() {
                 )}
             </div>
             {query && (
-                <div onClick={clickHandler} className="fixed w-full h-full top-0 left-0 bg-black/40 z-40 transition-all"></div>
+                <div onClick={clickHandler} className="fixed w-full h-full top-0 left-0 bg-black/40 z-30 transition-all"></div>
             )}
         </>
     );

@@ -22,14 +22,10 @@
 
 
 @layer utilities {
-    .submenu:hover .subsubmenu  {
+    .submenu:hover .subsubmenu {
         opacity: 1;
         visibility: visible;
     }
 
-    .search-bar-active {
-        border: 2px solid red;
-    }
-    
 }
 

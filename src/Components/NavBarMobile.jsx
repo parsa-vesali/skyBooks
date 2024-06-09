@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { IoMenuOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import { LuUser2 } from "react-icons/lu";
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { IoBookOutline } from "react-icons/io5";
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import { MdChevronLeft } from "react-icons/md";
