@@ -80,7 +80,7 @@ export const menuCategory = [
                     { id: 2, title: 'پیشرفته' },
                 ]
             },
-            
+
             {
                 id: 4,
                 title: 'آنالیز',
@@ -89,7 +89,7 @@ export const menuCategory = [
                     { id: 2, title: 'آنالیز واقعی' },
                 ]
             },
-           
+
         ]
     },
     {
@@ -128,7 +128,7 @@ export const menuCategory = [
         title: 'مدیریت',
         category: 'management',
         subMenu: [
-           
+
         ]
     },
     {
@@ -168,6 +168,77 @@ export const menuCategory = [
     },
 ];
 
-
+export const books = [
+    {
+        id: 1,
+        name: "درک الگوریتم",
+        price: 296_000,
+        img: '../images/Books/book-1.jpg',
+        desc: "راهنمای تصویری برای برنامه نویس‌ها و افراد کنجکاو",
+        author: " آدیتیا بهارگاوا،",
+        Publisher: "Independently",
+        page: 310,
+        year: 2023 ,
+        language: "Persian" ,
+        category: 'programming' ,
+        categoryTitle : 'برنامه نویسی',
+    },
+    {
+        id:2 ,
+        name: "The Mathematics of Machine Learning",
+        price: 238_000,
+        img: '../images/Books/book-2.jpg',
+        desc: "Lectures on Supervised Methods and Beyond",
+        author: "Maria Han Veiga, François Gaston Ged",
+        Publisher: "De Gruyter",
+        page:290 ,
+        year: 2024 ,
+        language: "English" ,
+        category: 'programming' ,
+        categoryTitle : 'برنامه نویسی',
+    },
+    {
+        id: 3,
+        name: "Pro Angular 16",
+        price:629_000 ,
+        img: '../images/Books/book3-.jpg',
+        desc: "",
+        author: "Adam Freeman",
+        Publisher: "Manning",
+        page: 848,
+        year:  2024,
+        language: "English" ,
+        category: 'programming' ,
+        categoryTitle : 'برنامه نویسی',
+    },
+    {
+        id:4 ,
+        name: "Learning React Native",
+        price:256_000,
+        img: '../images/Books/book-4.jpg',
+        desc: "Building Native Mobile Apps with JavaScript",
+        author: "Bonnie Eisenman",
+        Publisher: "O'Reilly",
+        page:242 ,
+        year:  2018,
+        language: "English" ,
+        category: 'programming' ,
+        categoryTitle : 'برنامه نویسی',
+    },
+    {
+        id: 5,
+        name: "Introduction to Flight",
+        price: 830_000 ,
+        img: '../images/Books/book-5.jpg',
+        desc: "",
+        author: "John D. Anderson, Jr., Mary L. Bowden",
+        Publisher: "McGraw-Hill",
+        page:961 ,
+        year:2022,
+        language: "English" ,
+        category: 'engineering' ,
+        categoryTitle : 'مهندسی'
+    },
+]
 
 
