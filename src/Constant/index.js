@@ -201,7 +201,7 @@ export const books = [
         id: 3,
         name: "Pro Angular 16",
         price:629_000 ,
-        img: '../images/Books/book3-.jpg',
+        img: '../images/Books/book-3.jpg',
         desc: "",
         author: "Adam Freeman",
         Publisher: "Manning",
@@ -238,6 +238,34 @@ export const books = [
         language: "English" ,
         category: 'engineering' ,
         categoryTitle : 'مهندسی'
+    },
+    {
+        id: 6,
+        name: "Eloquent JavaScript",
+        price:370_000  ,
+        img: '../images/Books/book-5.jpg',
+        desc: "",
+        author: "Marijn Haverbeke",
+        Publisher: "Independently Published",
+        page:201 ,
+        year:2024,
+        language: "English" ,
+        category: 'programming' ,
+        categoryTitle : 'برنامه نویسی'
+    },
+    {
+        id: 7,
+        name: "Modern English Part 1",
+        price: 260_000 ,
+        img: '../images/Books/book-5.jpg',
+        desc: "Exercises for Non-Native Speakers, Part 1: Parts of Speech",
+        author: "Marcella Frank",
+        Publisher: "Prentice Hall",
+        page:201 ,
+        year:1986,
+        language: "English" ,
+        category: 'languages' ,
+        categoryTitle : 'زبان های خارجی'
     },
 ]
 
