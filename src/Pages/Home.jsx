@@ -3,6 +3,7 @@ import NavBar from '../Components/NavBar'
 import MainHeader from '../Components/MainHeader'
 import NavBarMobile from '../Components/NavBarMobile'
 import LatesBooks from '../Components/LatesBooks'
+import BestCategoties from '../Components/BestCategoties'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <div className="container">
         <MainHeader />
         <LatesBooks />
+        <BestCategoties />
       </div>
     </>
 
