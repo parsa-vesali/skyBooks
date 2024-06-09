@@ -30,46 +30,46 @@ export default function BestCategoties() {
             </ul>
 
             {/* mobile */}
-          <div className="mt-5 lg:hidden">
-          <Swiper
-                freeMode={true}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                }}
-                modules={[FreeMode, Autoplay]}
-                breakpoints={{
-                    300: {
-                        slidesPerView: 3,
-                        spaceBetween: 10,
-                    },
-                    640: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
-                    },
-                    768: {
-                        slidesPerView: 4,
-                        spaceBetween: 30,
-                    },
-                }}
-                className="mySwiper"
-            >
-                {
-                    randomCategories().map(category => (
-                        <SwiperSlide>
-                            <li key={category.id} className='p-2 transition-all duration-300 hover:shadow-xl rounded-lg'>
-                                <Link to={'/'} className='flex flex-col items-center justify-center gap-y-4 text-gray-600 text-sm'>
-                                    <img src={category.img} alt="" className='w-12 h-12 object-cover' />
-                                    <p>{category.title}</p>
-                                </Link>
-                            </li>
-                        </SwiperSlide>
+            <div className="mt-5 lg:hidden">
+                <Swiper
+                    freeMode={true}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    modules={[FreeMode, Autoplay]}
+                    breakpoints={{
+                        300: {
+                            slidesPerView: 3,
+                            spaceBetween: 10,
+                        },
+                        640: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                        768: {
+                            slidesPerView: 4,
+                            spaceBetween: 30,
+                        },
+                    }}
+                    className="mySwiper"
+                >
+                    {
+                        randomCategories().map(category => (
+                            <SwiperSlide>
+                                <li key={category.id} className='p-2 transition-all duration-300 hover:shadow-xl rounded-lg'>
+                                    <Link to={'/'} className='flex flex-col items-center justify-center gap-y-4 text-gray-600 text-sm'>
+                                        <img src={category.img} alt="" className='w-12 h-12 object-cover' />
+                                        <p>{category.title}</p>
+                                    </Link>
+                                </li>
+                            </SwiperSlide>
 
-                    ))
-                }
+                        ))
+                    }
 
-            </Swiper>
-          </div>
+                </Swiper>
+            </div>
         </>
 
     )

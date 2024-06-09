@@ -317,3 +317,10 @@ export const bestCategories = [
     },
 ]
 
+
+export const datas = [
+    { id: 1, end: 1200, title: 'کتاب‌های فروخته شده' },
+    { id: 2, end: 350, title: 'مشتریان راضی' },
+    { id: 3, end: 200, title: 'کتاب‌های موجود' },
+    { id: 4, end: 50, title: 'کتاب‌های جدید' }
+];
