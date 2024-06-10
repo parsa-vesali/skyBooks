@@ -15,6 +15,7 @@
     "@mui/icons-material": "^5.15.19",
     "@mui/material": "^5.15.19",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "aos": "^2.3.4",
     "install": "^0.13.0",
     "npm": "^10.8.1",
     "react": "^18.2.0",
@@ -23,6 +24,7 @@
     "react-icons": "^5.2.1",
     "react-intersection-observer": "^9.10.3",
     "react-router-dom": "^6.23.1",
+    "save": "^2.9.0",
     "styled-components": "^6.1.11",
     "swiper": "^11.1.4"
   },

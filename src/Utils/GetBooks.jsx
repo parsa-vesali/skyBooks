@@ -9,7 +9,7 @@ import { books } from '../Constant';
 export default function GetBooks() {
  
     return (
-        <div className="my-10 bg-gray-100 px-2 rounded-lg">
+        <div data-aos="fade-up" className="my-10 bg-gray-100 px-2 rounded-lg">
             <Swiper
                 freeMode={true}
                 modules={[FreeMode]}

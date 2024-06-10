@@ -8,9 +8,9 @@ import { FaWhatsapp } from "react-icons/fa";
 export default function Footer() {
     return (
         <div className="">
-            <div className='container bg-rose-500 dark:bg-dark-700  text-white mt-20  py-8'>
+            <div className='bg-rose-500 dark:bg-dark-700  text-white mt-20  py-8'>
 
-                <ul className="w-full flex items-center justify-between lg:child:w-[20%] pb-8 border-b border-neutral-200 ">
+                <ul className="container w-full flex flex-col justify-start lg:flex-row items-start lg:items-center space-y-3 lg:justify-between lg:child:w-[20%] pb-8 border-b border-neutral-200 ">
                     <li className='flex items-center gap-x-2'>
                         <img className='w-10 h10 hover:scale-110 transition-all ' src="./images/svg/book.png" alt="" />
                         <p>
@@ -37,8 +37,8 @@ export default function Footer() {
                     </li>
                 </ul>
 
-                <div className="flex items-start flex-col lg:flex-row gap-y-5 justify-between lg:child:w-[30%] py-8">
-                    <ul className=' space-y-2 child:cursor-pointer '>
+                <div className="container flex items-start flex-col lg:flex-row gap-y-5 justify-between  py-8">
+                    <ul className=' lg:w-[20%] space-y-2 child:cursor-pointer '>
                         <h2 className=' font-Dana-Bold text-xl'>دسترسی سریع</h2>
                         <li>راهنمای خرید</li>
                         <li> راهنمای ارسال</li>
@@ -48,37 +48,35 @@ export default function Footer() {
                         <li>   وبلاگ</li>
                     </ul>
 
-                    <ul className='space-y-5 child:cursor-pointer '>
+                    <ul className='lg:w-[30%] space-y-5 child:cursor-pointer '>
                         <h2 className=' font-Dana-Bold text-xl'>درباره ما</h2>
                         <li>
                             مجموعه اسکای بوک با کادری مجرب و متخصص، با استفاده از بهترین دستگاه‌ها و مواد اولیه چاپ و صحافی با کیفیتی تضمینی، آماده همکاری با دانشگاه‌ها، مدارس، موسسات آموزشی و فرهنگی، کتابخانه‌ها و شرکت‌ها می باشد. اسکای بوک هیچ شعبه و شراکتی با دفاتر چاپ و کتابفروشی‌ها ندارد. بیشتر بخوانید...
                         </li>
                     </ul>
 
-
-
-                    <ul className='space-y-2 child:cursor-pointer'>
+                    <ul className='lg:w-[30%] space-y-2 child:cursor-pointer'>
                         <h2 className='font-Dana-Bold text-xl text-white'>با ما در تماس باشید</h2>
                         <li>
-                            پشتیبانی:
-                            ۰۹۱۹۱۲۳۱۱۱۰ | ۰۲۱۶۶۱۲۰۳۵۰
+                           <span className=' font-Dana-Bold'> پشتیبانی :</span>
+                             09229008317
                         </li>
                         <li>
-                            مدیریت:
-                            ۰۲۱۲۲۰۰۰۳۳۲
+                           <span className=' font-Dana-Bold'> مدیریت:</span>
+                            ۰۲3۲۰۰022۲
                         </li>
                         <li>
-                            ساعات پاسخگویی : شنبه تا چهارشنبه از ساعت ۱۰:۰۰ الی ۱۹:۰۰، پنجشنبه‌ها ۱۰:۰۰ الی ۱۷:۰۰ (پشتیبانی در ساعات و روزهای تعطیل از طریق تلگرام و واتساپ انجام می‌شود.)
+                            <span className=' font-Dana-Bold'>ساعات پاسخگویی</span> : شنبه تا چهارشنبه از ساعت ۱۰:۰۰ الی ۱۹:۰۰، پنجشنبه‌ها ۱۰:۰۰ الی ۱۷:۰۰ (پشتیبانی در ساعات و روزهای تعطیل از طریق تلگرام و واتساپ انجام می‌شود.)
                         </li>
                         <li>
-                            آدرس : میدان انقلاب، خیابان کارگر جنوبی، اولین کوچه سمت راست (کوچه رشتچی)، پلاک ۷، (ساختمان اداری تخت جمشید)، طبقه اول، واحد ۲
+                            <span className=' font-Dana-Bold'>آدرس</span> : میدان انقلاب، خیابان کارگر جنوبی، اولین کوچه سمت راست (کوچه رشتچی)، 2پلاک  ، (ساختمان اداری 1)، طبقه اول، واحد 4
                         </li>
                     </ul>
 
 
                 </div>
             </div>
-            <div className="container bg-zinc-800 text-gray-100 flex items-center flex-col lg:flex-row justify-between py-4">
+            <div className="md:container w-full bg-zinc-800 text-gray-100 flex items-center flex-col lg:flex-row justify-between py-4 space-y-3 lg:space-y-0">
                 <h2 className=''>
                     ساخته شده توسط
                     <a href="https://github.com/parsa-vesali" className=' text-sky-400'> parsavesali </a>

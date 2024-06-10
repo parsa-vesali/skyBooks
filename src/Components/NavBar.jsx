@@ -13,7 +13,7 @@ export default function NavBar() {
     return (
         <>
             {/* NAV BAR */}
-            <div className='relative mt-10 hidden lg:block'>
+            <div className='relative mt-10 hidden lg:block ' data-aos="fade-up">
                 {/* Decorative top arc */}
                 <div className="m-auto absolute -top-5 left-0 right-0 w-[90%] h-5 bg-rose-600 rounded-t-full shadow"></div>
 

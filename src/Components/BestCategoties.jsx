@@ -16,7 +16,7 @@ export default function BestCategoties() {
         <>
             <Title title={'رشته‌های منتخب'} subtite={'بر اساس انتخاب شما'} />
 
-            <ul className='hidden lg:flex items-center justify-around mt-10'>
+            <ul className='hidden lg:flex items-center justify-around mt-10' data-aos="fade-up">
                 {
                     randomCategories().map(category => (
                         <li key={category.id} className='px-8 py-4 transition-all duration-300 hover:shadow-xl rounded-lg'>
@@ -30,7 +30,7 @@ export default function BestCategoties() {
             </ul>
 
             {/* mobile */}
-            <div className="mt-5 lg:hidden">
+            <div className="mt-5 lg:hidden" data-aos="fade-up">
                 <Swiper
                     freeMode={true}
                     autoplay={{
