@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { menuCategory } from '../Constant';
 import { IoBookOutline } from "react-icons/io5";
@@ -6,14 +6,17 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchBar from './SearchBar';
 import AccounteBox from './AccounteBox';
+import { AuthContext } from '../Context/AuthContext';
 
 
 
 export default function NavBar() {
+    const { isAuthenticated, logout } = useContext(AuthContext);
+
     return (
         <>
             {/* NAV BAR */}
-            <div className='relative mt-10 hidden lg:block ' data-aos="fade-up">
+            <div className='relative mt-10 hidden lg:block '>
                 {/* Decorative top arc */}
                 <div className="m-auto absolute -top-5 left-0 right-0 w-[90%] h-5 bg-rose-600 rounded-t-full shadow"></div>
 
@@ -36,8 +39,24 @@ export default function NavBar() {
                     {/* RIGHT SECTION: Account and Cart Links */}
                     <div className="flex items-center">
                         <div className="flex items-center gap-x-10 child:transition-all">
-                            {/* accountBox */}
-                            <AccounteBox />
+                            {/* نمایش محتوای مرتبط با وضعیت ورود */}
+                            {isAuthenticated ? (
+                                <>
+                                    <AccounteBox />
+                                    <button onClick={logout} className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'>
+                                        <span>خروج</span>
+                                    </button>
+                                </>
+                            ) : (
+                                <>
+                                    <Link to={'/login'} className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'>
+                                        <span>ورود</span>
+                                    </Link>
+                                    <Link to={'/register'} className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'>
+                                        <span>ثبت‌نام</span>
+                                    </Link>
+                                </>
+                            )}
                             <Link to={'/'} className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'>
                                 <LocalMallOutlinedIcon />
                                 <span>سبد خرید</span>

@@ -13,10 +13,11 @@ export default function GetBooks() {
             <Swiper
                 freeMode={true}
                 modules={[FreeMode]}
+                loop={true}
                 breakpoints={{
                     300: {
                         slidesPerView: 2,
-                        spaceBetween: 10,
+                        spaceBetween: 80,
                     },
                     640: {
                         slidesPerView: 3,

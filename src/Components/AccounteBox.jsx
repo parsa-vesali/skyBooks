@@ -4,7 +4,7 @@ import { CiUser } from "react-icons/ci";
 
 export default function AccounteBox() {
     return (
-        <Link to={'/'} className=' group flex items-center justify-center gap-x-1 text-gray-500 hover:text-rose-500'>
+        <Link to={'/'} className=' group flex items-center justify-center gap-x-1 text-gray-500 hover:text-rose-500 z-50'>
             <CiUser className='text-xl font-bold' />
             <span>حساب کاربری</span>
             <div className='absolute w-[250px] bg-white top-20 border-t-2 border-gray-200 shadow-xl flex flex-col gap-y-2 child:text-sm text-gray-500  rounded-lg transition-all delay-100 invisible opacity-0 group-hover:top-14 group-hover:opacity-100 group-hover:visible py-3 px-2 z-50'>

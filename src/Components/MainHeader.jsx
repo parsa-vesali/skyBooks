@@ -11,9 +11,11 @@ import 'swiper/css/pagination';
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
 
+
 export default function MainHeader() {
   return (
-    <div className='grid grid-cols-12 gap-6 sm:gap-7 mt-4 lg:mt-20' data-aos="fade-up">
+   <>
+     <div className='grid grid-cols-12 gap-6 sm:gap-7 mt-4 lg:mt-20 z-0'>
       {/* SLIDER */}
 
       <div className="col-span-12 sm:col-span-8 overflow-hidden">
@@ -53,5 +55,6 @@ export default function MainHeader() {
       </div>
 
     </div>
+   </>
   );
 }
