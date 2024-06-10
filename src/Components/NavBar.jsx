@@ -7,11 +7,12 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchBar from './SearchBar';
 import AccounteBox from './AccounteBox';
 import { AuthContext } from '../Context/AuthContext';
+import { CiLogin } from "react-icons/ci";
 
 
 
 export default function NavBar() {
-    const { isAuthenticated, logout } = useContext(AuthContext);
+    const { isAuthenticated } = useContext(AuthContext);
 
     return (
         <>
@@ -39,23 +40,20 @@ export default function NavBar() {
                     {/* RIGHT SECTION: Account and Cart Links */}
                     <div className="flex items-center">
                         <div className="flex items-center gap-x-10 child:transition-all">
-                            {/* نمایش محتوای مرتبط با وضعیت ورود */}
                             {isAuthenticated ? (
                                 <>
                                     <AccounteBox />
-                                    <button onClick={logout} className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'>
-                                        <span>خروج</span>
-                                    </button>
                                 </>
                             ) : (
-                                <>
-                                    <Link to={'/login'} className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'>
-                                        <span>ورود</span>
-                                    </Link>
-                                    <Link to={'/register'} className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'>
+                                <div className='flex items-center gap-x-4 text-gray-500 child:cursor-pointer child-hover:text-rose-600'>
+                                    <Link to={'/register'} className=' text-lg flex items-center gap-x-1'>
+                                    <CiLogin className=' font-bold text-2xl' />
                                         <span>ثبت‌نام</span>
                                     </Link>
-                                </>
+                                    <Link to={'/login'} className=' text-lg'>
+                                        <span>ورود</span>
+                                    </Link>
+                                </div>
                             )}
                             <Link to={'/'} className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'>
                                 <LocalMallOutlinedIcon />

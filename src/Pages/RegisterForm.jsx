@@ -1,3 +1,4 @@
+// RegisterForm.jsx
 import React, { useContext } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -39,15 +40,16 @@ const RegisterForm = () => {
       onSubmit={(values, { setSubmitting }) => {
         axios.post('https://shop-apis.liara.run/auth/register', values)
           .then(response => {
-            // ذخیره توکن یا هر اطلاعات دیگری
-            localStorage.setItem('authToken', response.data.token); // ذخیره توکن فرضی در localStorage
-            login(); // به‌روزرسانی وضعیت ورود
+            const authToken = response.data.token; // فرض بر این است که توکن از پاسخ دریافت می‌شود
+            localStorage.setItem('authToken', authToken);
+            localStorage.setItem('user', JSON.stringify({ name: values.name, phone: values.phone }));
+            login({ name: values.name, phone: values.phone }); 
             Swal.fire({
               title: 'ثبت‌نام موفقیت‌آمیز بود!',
               text: 'حساب شما با موفقیت ایجاد شد.',
               icon: 'success',
               confirmButtonText: 'باشه',
-              didClose: () => navigate('/') // هدایت به صفحه اصلی پس از بستن پیام
+              didClose: () => navigate('/') 
             });
           })
           .catch(error => {
@@ -58,9 +60,9 @@ const RegisterForm = () => {
               confirmButtonText: 'باشه'
             });
             if (error.response && error.response.data) {
-              console.log(error.response.data); // نمایش داده‌ها یا پیام خطا
+              console.log(error.response.data); 
             } else {
-              console.log(error.message); // نمایش پیام خطا
+              console.log(error.message); 
             }
           })
           .finally(() => {
