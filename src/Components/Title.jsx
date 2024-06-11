@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Title({ title, subtite, children }) {
   return (
-    <div data-aos="fade-up" className='flex items-center justify-between mt-20'>
+    <div data-aos="fade-up" className='flex items-center justify-between mt-16'>
       <div className="flex items-center gap-x-4">
         <span className='w-5 h-5 bg-rose-700 rounded rotate-45 hidden md:flex'></span>
         <div className="space-y-1">

@@ -29,10 +29,9 @@ export default function Home() {
         <MainBanners />
         <ProgrammingBooks />
         <PopularBooks />
-        <img src="./images/banner-8.jpg" data-aos="fade-up" className=' hidden lg:flex rounded-lg mt-20' alt="" />
+        <img src="./images/banner-8.jpg" data-aos="fade-up" className='hidden lg:flex rounded-lg mt-20' alt="" />
       </div>
       <Footer />
     </>
-
   )
 }

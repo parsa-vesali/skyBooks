@@ -68,7 +68,7 @@ export default function NavBar() {
                 <div className="m-auto absolute -bottom-12 left-0 right-0 w-[80%] h-12 bg-gray-100 rounded-b-xl flex items-center justify-center py-4">
                     <ul className='flex gap-x-4 xl:gap-x-8 child:text-base child:text-gray-600 child-hover:text-rose-600 child:transition-colors'>
                         {menuCategory.map(menu => (
-                            <Link to={'/'} key={menu.title} className='group relative flex items-center justify-center transition-all'>
+                            <Link to={`/categories/${menu.title}`} key={menu.title} className='group relative flex items-center justify-center transition-all'>
                                 {menu.title}
                                 {menu.subMenu.length ? (
                                     <>
