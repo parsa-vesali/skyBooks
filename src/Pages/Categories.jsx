@@ -6,7 +6,8 @@ import SwapVertIcon from '@mui/icons-material/SwapVert';
 import { books } from '../Constant';
 import { IoIosArrowDown } from "react-icons/io";
 import RangeSlider from '../Components/RangeSlider';
-import { formatNumber } from '../Utils';
+import { PiHouseSimpleThin } from "react-icons/pi";
+
 
 const categories = [
     {
@@ -15,7 +16,7 @@ const categories = [
     },
     {
         title: 'انتشارات',
-        options: ['Independently', 'Manning', 'Independently']
+        options: ['Independently', 'Manning', ]
     },
     {
         title: 'کیفیت متن',
@@ -51,16 +52,23 @@ export default function Categories() {
         <>
             <div className='container'>
                 <NavBar />
-                <div className=""></div>
             </div>
             <NavBarMobile />
             <div className="container mt-24">
                 <div className="grid grid-cols-12 gap-y-5 md:gap-x-7 items-start">
                     {/* SIDEBAR */}
                     <div className="col-span-full lg:col-span-4 xl:col-span-3 lg:sticky top-6 space-y-5">
-                        <div className="flex items-center gap-x-2">
-                            <h2 className='text-lg font-Dana-Bold'>{params.category}</h2>
-                            <span>({books.length} محصول)</span>
+                        <div className="">
+                            <h2 className='text-lg font-Dana-Bold flex items-center gap-x-2'>{params.category} <span className=' text-sm text-gray-500'>({books.length} محصول)</span></h2>
+                            <div className='flex gap-x-2 mt-2 child:text-gray-500 cursor-pointer'>
+                                <span>
+                                    <PiHouseSimpleThin /> 
+                                </span>
+                                <span className=' text-lg'> / </span>
+                                <span>
+                                {params.category}
+                                </span>
+                            </div>
                         </div>
                         <div className="shadow-lg p-4 space-y-2 rounded-lg">
                             {/* ACCORDION */}
@@ -97,9 +105,9 @@ export default function Categories() {
                             <RangeSlider
                                 label="قیمت"
                                 min={0}
-                                max={1000000}
+                                max={100000}
                                 value={priceRange}
-                                onChange={(e) => setPriceRange(formatNumber(e.target.value))}
+                                onChange={(e) => setPriceRange((e.target.value))}
                             />
                             <RangeSlider
                                 label="تعداد صفحات"
@@ -137,7 +145,6 @@ export default function Categories() {
                                 ))}
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
