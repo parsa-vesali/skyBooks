@@ -7,6 +7,8 @@ import { books } from '../Constant';
 import { IoIosArrowDown } from "react-icons/io";
 import RangeSlider from '../Components/RangeSlider';
 import { PiHouseSimpleThin } from "react-icons/pi";
+import { IoEye } from "react-icons/io5";
+import { CiShoppingCart } from "react-icons/ci";
 
 
 const categories = [
@@ -16,7 +18,7 @@ const categories = [
     },
     {
         title: 'انتشارات',
-        options: ['Independently', 'Manning', ]
+        options: ['Independently', 'Manning',]
     },
     {
         title: 'کیفیت متن',
@@ -31,7 +33,7 @@ export default function Categories() {
     const [selectedCheckboxes, setSelectedCheckboxes] = useState({});
     const [priceRange, setPriceRange] = useState(20000);
     const [pagesRange, setPagesRange] = useState(300);
-    const [yearRange, setYearRange] = useState(2020); 
+    const [yearRange, setYearRange] = useState(2020);
     const options = ['پرفروش ترین', 'گران ترین', 'ارزان ترین', 'محبوب ترین', 'جدیدترین'];
 
     const handleAccordionClick = (index) => {
@@ -61,15 +63,15 @@ export default function Categories() {
                             <h2 className='text-lg font-Dana-Bold flex items-center gap-x-2'>{params.category} <span className=' text-sm text-gray-500'>({books.length} محصول)</span></h2>
                             <div className='hidden gap-x-2 mt-2 child:text-gray-500 cursor-pointer lg:flex'>
                                 <span>
-                                    <PiHouseSimpleThin /> 
+                                    <PiHouseSimpleThin />
                                 </span>
                                 <span className=' text-lg'> / </span>
                                 <span>
-                                {params.category}
+                                    {params.category}
                                 </span>
                             </div>
                         </div>
-                        <div className="shadow-lg p-4 space-y-2 rounded-lg">
+                        <div className="shadow-lg p-4 space-y-2 rounded-lg ">
                             {/* ACCORDION */}
                             {categories.map((category, index) => (
                                 <div key={index} className="border-b last:border-none">
@@ -100,7 +102,7 @@ export default function Categories() {
                                     )}
                                 </div>
                             ))}
-                            
+
                             {/* RANGE SLIDERS */}
                             <RangeSlider
                                 label="قیمت"
@@ -124,11 +126,12 @@ export default function Categories() {
                                 onChange={(e) => setYearRange(e.target.value)}
                             />
                         </div>
+
                     </div>
                     {/* CONTENT */}
-                    <div className="order-1 col-span-full lg:col-span-8 xl:col-span-9 lg:order-2 space-y-5">
+                    <div className="order-1 col-span-full lg:col-span-8 xl:col-span-9 lg:order-2 space-y-5 ">
                         {/* SORT FILTER */}
-                        <div className="flex items-center gap-x-4 py-3 bg-gray-100 rounded-lg px-4">
+                        <div className=" items-center gap-x-4 py-3 bg-gray-100 rounded-lg px-4 hidden lg:flex">
                             <span className='flex items-center gap-x-2'>
                                 <SwapVertIcon />
                                 <p className='font-Dana-Bold text-lg'>مرتب سازی بر اساس :</p>
@@ -144,6 +147,42 @@ export default function Categories() {
                                     </div>
                                 ))}
                             </div>
+                        </div>
+
+                        {/* FILTRED BOOKS */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-5 child:cursor-pointer">
+                            {
+                                books.map(book => (
+                                    <div key={book.id} className="flex flex-col bg-white  border border-neutral-100 rounded-2xl px-5 py-5 relative group h-80 mt-14 shadow-lg">
+                                        <div className="absolute -top-10 right-0 left-0 flex justify-center">
+                                            <img className='max-h-52 transition-all duration-150 group-hover:-translate-y-1 group-hover:shadow-xl' src={book.img} alt="book" />
+                                        </div>
+                                        <p className='bottom-14 right-5 left-5 absolute mt-2 h-14 text-sm  font-bold text-center line-clamp-2' dir='ltr'>
+                                            {book.name}
+                                        </p>
+
+                                        <div className="absolute bottom-3 right-5 left-5 flex items-center justify-between">
+                                            <span>
+                                                <IoEye />
+                                            </span>
+                                            <span className='flex items-center gap-x-1'>
+                                                <p className=' font-Dana-Bold'>
+                                                    {book.price}
+                                                </p>
+                                                <span className=' text-sm text-gray-500'>تومان</span>
+                                            </span>
+
+                                        </div>
+                                        <div class="absolute transition-all duration-150 left-6 right-6 bottom-0 translate-y-2 group-hover:translate-y-6 items-center text-xs opacity-0 group-hover:opacity-100 flex">
+                                            <button class="flex items-center justify-center h-0 w-full group-hover:h-auto transition-all duration-150 py-1 px-2 rounded bg-gray-200 hover:bg-rose-600 hover:text-white mr-1">
+                                                <CiShoppingCart className=' text-lg' />
+                                                افزودن به سبد خرید
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+
                         </div>
                     </div>
                 </div>
