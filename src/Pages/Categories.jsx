@@ -47,20 +47,19 @@ export default function Categories() {
             },
         }));
     };
-
     return (
         <>
             <div className='container'>
                 <NavBar />
             </div>
             <NavBarMobile />
-            <div className="container mt-24">
+            <div className="container mt-4 lg:mt-24">
                 <div className="grid grid-cols-12 gap-y-5 md:gap-x-7 items-start">
                     {/* SIDEBAR */}
                     <div className="col-span-full lg:col-span-4 xl:col-span-3 lg:sticky top-6 space-y-5">
-                        <div className="">
+                        <div className="flex lg:flex-col items-center lg:items-start justify-center lg:justify-normal">
                             <h2 className='text-lg font-Dana-Bold flex items-center gap-x-2'>{params.category} <span className=' text-sm text-gray-500'>({books.length} محصول)</span></h2>
-                            <div className='flex gap-x-2 mt-2 child:text-gray-500 cursor-pointer'>
+                            <div className='hidden gap-x-2 mt-2 child:text-gray-500 cursor-pointer lg:flex'>
                                 <span>
                                     <PiHouseSimpleThin /> 
                                 </span>
@@ -101,6 +100,7 @@ export default function Categories() {
                                     )}
                                 </div>
                             ))}
+                            
                             {/* RANGE SLIDERS */}
                             <RangeSlider
                                 label="قیمت"

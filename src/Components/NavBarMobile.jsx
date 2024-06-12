@@ -48,7 +48,7 @@ export default function NavBarMobile() {
                                 {
                                     menuCategory.map(menu => (
                                         <li key={menu.id} className='border-b border-zinc-300 px-4 py-3'>
-                                            <Link className='flex items-center justify-between'>
+                                            <Link to={`/categories/${menu.title}`} className='flex items-center justify-between'>
                                                 <p className='flex items-center gap-x-2'>
                                                     <span className='w-2 h-2 rounded-full bg-rose-600'></span>
                                                     {menu.title}
