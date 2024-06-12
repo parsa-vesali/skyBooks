@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { menuCategory } from '../Constant';
 import { Link } from 'react-router-dom';
 import { IoMenuOutline } from "react-icons/io5";
@@ -8,9 +8,12 @@ import { IoBookOutline } from "react-icons/io5";
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import { MdChevronLeft } from "react-icons/md";
 import SearchBar from './SearchBar';
+import AccounteBox from './AccounteBox';
+import { AuthContext } from '../Context/AuthContext';
 
 
 export default function NavBarMobile() {
+    const { isAuthenticated } = useContext(AuthContext);
 
     const [isShowMenu, setIsShowMenu] = useState(false)
     const clickHandler = () => {
@@ -72,7 +75,15 @@ export default function NavBarMobile() {
                     {/* ACCOUNTE */}
                     <div className="flex items-center gap-x-2 child:text-gray-600">
                         <span>
-                            <LuUser2 className='text-2xl' />
+                            {isAuthenticated ? (
+                                <AccounteBox />
+                            ) : (
+                                <div className='flex items-center gap-x-1 text-gray-500 child:cursor-pointer child-hover:text-rose-600 child:text-2xl child:font-bold'>
+                                    <Link to={'/register'} className=' flex items-center'>
+                                      <LuUser2 />
+                                    </Link>
+                                </div>
+                            )}
                         </span>
                         <span>
                             <LocalMallOutlinedIcon className='text-2xl' />
@@ -82,12 +93,6 @@ export default function NavBarMobile() {
 
                 {/* SEARCHBAR */}
                 <div className="">
-                    {/* <div className=" relative flex justify-end p-1.5 bg-zinc-100 rounded-lg w-[100%] ">
-                        <input type="text" className='absolute top-0 left-0 right-0 bottom-0 w-full px-2 rounded-lg  outline-none border-none bg-transparent text-sm focus:ring focus:ring-sky-300  z-10' placeholder='جستجو کنید...' />
-                        <span className='w-8 h-8 flex items-center justify-center bg-rose-500 hover:bg-rose-400 transition-all cursor-pointer rounded-lg text-white text-sm z-20'>
-                            <SearchOutlinedIcon />
-                        </span>
-                    </div> */}
                     <SearchBar />
                 </div>
             </div>

@@ -56,8 +56,8 @@ export default function BestCategoties() {
                 >
                     {
                         randomCategories().map(category => (
-                            <SwiperSlide>
-                                <li key={category.id} className='p-2 transition-all duration-300 hover:shadow-xl rounded-lg'>
+                            <SwiperSlide key={category.id}>
+                                <li  className='p-2 transition-all duration-300 hover:shadow-xl rounded-lg'>
                                     <Link to={'/'} className='flex flex-col items-center justify-center gap-y-4 text-gray-600 text-sm'>
                                         <img src={category.img} alt="" className='w-12 h-12 object-cover' />
                                         <p>{category.title}</p>

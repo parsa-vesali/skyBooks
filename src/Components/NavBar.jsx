@@ -48,7 +48,7 @@ export default function NavBar() {
                                 <div className='flex items-center gap-x-4 text-gray-500 child:cursor-pointer child-hover:text-rose-600'>
                                     <Link to={'/register'} className=' text-lg flex items-center gap-x-1'>
                                     <CiLogin className=' font-bold text-2xl' />
-                                        <span>ثبت‌نام</span>
+                                        <span>ثبت‌ نام</span>
                                     </Link>
                                     <Link to={'/login'} className=' text-lg'>
                                         <span>ورود</span>

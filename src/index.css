@@ -26,5 +26,13 @@
         opacity: 1;
         visibility: visible;
     }
+  
+
 }
 
+
+
+.swal2-popup {
+    font-family: 'Dana' !important;
+  }
+  
