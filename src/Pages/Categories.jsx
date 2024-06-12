@@ -1,36 +1,49 @@
 import React, { useState } from 'react';
 import NavBar from '../Components/NavBar';
 import NavBarMobile from '../Components/NavBarMobile';
-import { FormControlLabel, Checkbox, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useParams } from 'react-router-dom';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
 import { books } from '../Constant';
+import { IoIosArrowDown } from "react-icons/io";
+import RangeSlider from '../Components/RangeSlider';
+import { formatNumber } from '../Utils';
+
+const categories = [
+    {
+        title: 'زبان',
+        options: ['English', 'Persian', 'Engineering']
+    },
+    {
+        title: 'انتشارات',
+        options: ['Independently', 'Manning', 'Independently']
+    },
+    {
+        title: 'کیفیت متن',
+        options: ['اورجینال انتشارات', 'اسکن شده', 'تبدیل شده از Epub']
+    }
+];
 
 export default function Categories() {
     let params = useParams();
     const [selectedOption, setSelectedOption] = useState('جدیدترین');
-    const [checkedItems, setCheckedItems] = useState({});
+    const [expandedIndex, setExpandedIndex] = useState(null);
+    const [selectedCheckboxes, setSelectedCheckboxes] = useState({});
+    const [priceRange, setPriceRange] = useState(20000);
+    const [pagesRange, setPagesRange] = useState(300);
+    const [yearRange, setYearRange] = useState(2020); 
     const options = ['پرفروش ترین', 'گران ترین', 'ارزان ترین', 'محبوب ترین', 'جدیدترین'];
-    const accordionData = [
-        {
-            title: 'دسته بندی',
-            options: ['فنی', 'هنری', 'ادبی', 'تاریخی']
-        },
-        {
-            title: 'نویسنده',
-            options: ['نویسنده 1', 'نویسنده 2', 'نویسنده 3']
-        }
-    ];
+
+    const handleAccordionClick = (index) => {
+        setExpandedIndex(expandedIndex === index ? null : index);
+    };
 
     const handleCheckboxChange = (category, option) => {
-        setCheckedItems(prevState => ({
-            ...prevState,
+        setSelectedCheckboxes((prev) => ({
+            ...prev,
             [category]: {
-                ...prevState[category],
-                [option]: !prevState[category]?.[option]
-            }
+                ...prev[category],
+                [option]: !prev[category]?.[option],
+            },
         }));
     };
 
@@ -41,7 +54,6 @@ export default function Categories() {
                 <div className=""></div>
             </div>
             <NavBarMobile />
-
             <div className="container mt-24">
                 <div className="grid grid-cols-12 gap-y-5 md:gap-x-7 items-start">
                     {/* SIDEBAR */}
@@ -50,40 +62,63 @@ export default function Categories() {
                             <h2 className='text-lg font-Dana-Bold'>{params.category}</h2>
                             <span>({books.length} محصول)</span>
                         </div>
-                        <div className="shadow-lg p-3">
-                            {accordionData.map((category) => (
-                                <Accordion key={category.title}>
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls={`panel-${category.title}-content`}
-                                        id={`panel-${category.title}-header`}
-                                        className='py-5'
+                        <div className="shadow-lg p-4 space-y-2 rounded-lg">
+                            {/* ACCORDION */}
+                            {categories.map((category, index) => (
+                                <div key={index} className="border-b last:border-none">
+                                    <div
+                                        className="flex justify-between items-center cursor-pointer py-3"
+                                        onClick={() => handleAccordionClick(index)}
                                     >
-                                        <h3 className='text-md font-Dana-Bold'>{category.title}</h3>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        {category.options.map((option) => (
-                                            <FormControlLabel
-                                                key={option}
-                                                control={
-                                                    <Checkbox
-                                                        checked={checkedItems[category.title]?.[option] || false}
+                                        <h3 className="text-lg font-medium ">{category.title}</h3>
+                                        <span className="transition-transform transform duration-300" style={{ transform: expandedIndex === index ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+                                            <IoIosArrowDown />
+                                        </span>
+                                    </div>
+                                    {expandedIndex === index && (
+                                        <div className="pl-4 space-y-2">
+                                            {category.options.map((option, optionIndex) => (
+                                                <div key={optionIndex} className="flex items-center">
+                                                    <input
+                                                        type="checkbox"
+                                                        id={`${category.title}-${option}`}
+                                                        className="form-checkbox"
+                                                        checked={selectedCheckboxes[category.title]?.[option] || false}
                                                         onChange={() => handleCheckboxChange(category.title, option)}
-                                                        name={option}
-                                                        color="primary"
                                                     />
-                                                }
-                                                label={option}
-                                            />
-                                        ))}
-                                    </AccordionDetails>
-                                </Accordion>
+                                                    <label htmlFor={`${category.title}-${option}`} className="mr-2 my-1 text-gray-600">{option}</label>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                             ))}
+                            {/* RANGE SLIDERS */}
+                            <RangeSlider
+                                label="قیمت"
+                                min={0}
+                                max={1000000}
+                                value={priceRange}
+                                onChange={(e) => setPriceRange(formatNumber(e.target.value))}
+                            />
+                            <RangeSlider
+                                label="تعداد صفحات"
+                                min={0}
+                                max={2000}
+                                value={pagesRange}
+                                onChange={(e) => setPagesRange(e.target.value)}
+                            />
+                            <RangeSlider
+                                label="سال چاپ"
+                                min={1900}
+                                max={2024}
+                                value={yearRange}
+                                onChange={(e) => setYearRange(e.target.value)}
+                            />
                         </div>
                     </div>
-
                     {/* CONTENT */}
-                    <div className="order-1 col-span-full lg:col-span-8 xl:col-span-9 lg:order-2">
+                    <div className="order-1 col-span-full lg:col-span-8 xl:col-span-9 lg:order-2 space-y-5">
                         {/* SORT FILTER */}
                         <div className="flex items-center gap-x-4 py-3 bg-gray-100 rounded-lg px-4">
                             <span className='flex items-center gap-x-2'>
@@ -102,6 +137,7 @@ export default function Categories() {
                                 ))}
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
