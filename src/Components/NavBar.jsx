@@ -8,12 +8,13 @@ import SearchBar from './SearchBar';
 import AccounteBox from './AccounteBox';
 import { AuthContext } from '../Context/AuthContext';
 import { CiLogin } from "react-icons/ci";
+import { CartContext } from '../Context/CartContext';
 
 
 
 export default function NavBar() {
     const { isAuthenticated } = useContext(AuthContext);
-
+    const { cartItems } = useContext(CartContext);
     return (
         <>
             {/* NAV BAR */}
@@ -58,7 +59,7 @@ export default function NavBar() {
                             <Link to={'/shopping-cart'} className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'>
                                 <LocalMallOutlinedIcon />
                                 <span>سبد خرید</span>
-                                <span className='rounded-lg bg-slate-100 w-8 h-8 text-zinc-900 flex items-center justify-center text-lg '>0</span>
+                                <span className='rounded-lg bg-slate-100 w-8 h-8 text-zinc-900 flex items-center justify-center text-lg '>{cartItems.length}</span>
                             </Link>
                         </div>
                     </div>
