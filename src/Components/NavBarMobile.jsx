@@ -72,7 +72,7 @@ export default function NavBarMobile() {
                         اسکای بوک
                     </Link>
 
-                    {/* ACCOUNTE */}
+                    {/* ACCOUNTE && shoping */}
                     <div className="flex items-center gap-x-2 child:text-gray-600">
                         <span>
                             {isAuthenticated ? (
@@ -85,9 +85,9 @@ export default function NavBarMobile() {
                                 </div>
                             )}
                         </span>
-                        <span>
+                        <Link to={'/shopping-cart'}>
                             <LocalMallOutlinedIcon className='text-2xl' />
-                        </span>
+                        </Link>
                     </div>
                 </div>
 

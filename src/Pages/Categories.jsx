@@ -9,6 +9,7 @@ import RangeSlider from '../Components/RangeSlider';
 import { PiHouseSimpleThin } from "react-icons/pi";
 import { IoEye } from "react-icons/io5";
 import { CiShoppingCart } from "react-icons/ci";
+import Footer from '../Components/Footer';
 
 
 const categories = [
@@ -187,6 +188,7 @@ export default function Categories() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }
