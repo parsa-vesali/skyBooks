@@ -171,6 +171,7 @@ export const menuCategory = [
 export const books = [
     {
         id: 1,
+        count : 1 ,
         name: "درک الگوریتم",
         price: 296_000,
         img: '../images/Books/book-1.jpg',
@@ -185,6 +186,7 @@ export const books = [
     },
     {
         id: 2,
+        count : 1 ,
         name: "The Mathematics of Machine Learning",
         price: 238_000,
         img: '../images/Books/book-2.jpg',
@@ -199,6 +201,7 @@ export const books = [
     },
     {
         id: 3,
+        count : 1 ,
         name: "Pro Angular 16",
         price: 629_000,
         img: '../images/Books/book-3.jpg',
@@ -213,6 +216,7 @@ export const books = [
     },
     {
         id: 4,
+        count : 1 ,
         name: "Learning React Native",
         price: 256_000,
         img: '../images/Books/book-4.jpg',
@@ -227,6 +231,7 @@ export const books = [
     },
     {
         id: 5,
+        count : 1 ,
         name: "Introduction to Flight",
         price: 830_000,
         img: '../images/Books/book-5.jpg',
@@ -241,6 +246,7 @@ export const books = [
     },
     {
         id: 6,
+        count : 1 ,
         name: "Eloquent JavaScript",
         price: 370_000,
         img: '../images/Books/book-6.jpg',
@@ -255,6 +261,7 @@ export const books = [
     },
     {
         id: 7,
+        count : 1 ,
         name: "Modern English Part 1",
         price: 260_000,
         img: '../images/Books/book-7.jpg',

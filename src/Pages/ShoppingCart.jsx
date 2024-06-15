@@ -25,7 +25,18 @@ export default function ShoppingCart() {
         moveToNextPurchase(itemId);
     };
 
-    const totalPrice = cartItems.reduce((total, item) => total + item.price * item.count, 0);
+    const totalPrice = cartItems.reduce((total, item) => {
+        // Ensure item.price and item.count are numbers, use parseFloat or Number() if necessary
+        const price = parseFloat(item.price);
+        const count = parseInt(item.count);
+
+        // Check if price and count are valid numbers
+        if (!isNaN(price) && !isNaN(count)) {
+            return total + (price * count);
+        } else {
+            return total; // Skip this item if price or count is not a valid number
+        }
+    }, 0);
 
     return (
         <>
@@ -91,7 +102,7 @@ export default function ShoppingCart() {
                                         </button>
                                         <input
                                             type="text"
-                                            value={item.count}
+                                            value={1}
                                             readOnly
                                             className="w-12 text-center border-none focus:outline-none"
                                         />
@@ -105,7 +116,7 @@ export default function ShoppingCart() {
 
                                     {/* price */}
                                     <div className="flex items-center gap-x-1 child:text-green-500">
-                                        <h2 className=' font-Dana-Bold'>{(item.price * item.count).toLocaleString()}</h2>
+                                        <h2 className=' font-Dana-Bold'>{(item.price).toLocaleString()}</h2>
                                         <span className=' text-sm'>تومان</span>
                                     </div>
 
