@@ -4,6 +4,7 @@ import NavBarMobile from '../Components/NavBarMobile';
 import { IoMdClose } from "react-icons/io";
 import { FaCaretLeft } from "react-icons/fa";
 import { CartContext } from '../Context/CartContext';
+import { CiShoppingCart } from "react-icons/ci";
 
 export default function ShoppingCart() {
     const { cartItems, updateCartItem, removeCartItem, moveToNextPurchase } = useContext(CartContext);
@@ -46,7 +47,7 @@ export default function ShoppingCart() {
             <NavBarMobile />
             <div className="container mt-5 lg:mt-24">
                 {/* SHOPPING CART */}
-                <div className="h-full W-[80%] child:lg:h-[90vh] flex flex-col space-y-4 lg:flex-row">
+                <div className="h-full W-[80%]  flex flex-col space-y-4 lg:flex-row">
                     {/* ITEMS */}
                     <div className="lg:w-[75%] h-full flex flex-col shadow-lg lg:px-8">
 
@@ -73,60 +74,65 @@ export default function ShoppingCart() {
                         {/* BOX ITEMS */}
                         <div className="flex flex-col mt-5 space-y-5 ">
                             {/* ITEM */}
-                            {cartItems.map(item => (
-                                <div key={item.id} className="w-full lg:h-40  py-2 px-4 lg:p-4 flex flex-col items-end lg:flex-row-reverse relative lg:items-center lg:justify-between lg:shadow rounded-lg">
-                                    <span className='absolute top-2 right-2 cursor-pointer' onClick={() => handleRemoveItem(item.id)}>
-                                        <IoMdClose />
-                                    </span>
+                            {cartItems.length ? (
+                                cartItems.map((item) => (
+                                    <div key={item.id} className="w-full lg:h-40 py-2 px-4 lg:p-4 flex flex-col items-end lg:flex-row-reverse relative lg:items-center lg:justify-between lg:shadow rounded-lg">
+                                        <span className='absolute top-2 right-2 cursor-pointer' onClick={() => handleRemoveItem(item.id)}>
+                                            <IoMdClose />
+                                        </span>
 
-                                    {/* ITEM IMAGE AND NAME */}
-                                    <div className="flex gap-x-3 lg:w-[30%] mb-10 mt-5 lg:mt-0 lg:mb-0">
-                                        <div className=" flex flex-col justify-between items-end line-clamp-1 py-1">
-                                            <h2 className='font-Dana-Bold' dir='ltr'>
-                                                {item.name}
-                                            </h2>
-                                            <span className=' text-sm text-gray-500'>
-                                                {item.author}
-                                            </span>
+                                        {/* ITEM IMAGE AND NAME */}
+                                        <div className="flex justify-end gap-x-3 lg:w-[30%] mb-10 mt-5 lg:mt-0 lg:mb-0">
+                                            <div className="flex flex-col justify-between items-end line-clamp-1 py-1">
+                                                <h2 className='font-Dana-Bold' dir='ltr'>{item.name}</h2>
+                                                <span className='text-sm text-gray-500'>{item.author}</span>
+                                            </div>
+                                            <img className='w-28 h-32 object-cover rounded-lg' src={item.img} alt={item.name} />
                                         </div>
-                                        <img className=' w-28 h-32 object-cover rounded-lg' src={item.img} alt={item.name} />
-                                    </div>
 
-                                    {/* number */}
-                                    <div className="inline-flex items-center border border-gray-300 rounded-md mb-5 lg:mb-0">
-                                        <button
-                                            onClick={() => handleDecrement(item.id)}
-                                            className="px-2 py-1 text-gray-600 hover:text-gray-900 focus:outline-none"
-                                        >
-                                            -
-                                        </button>
-                                        <input
-                                            type="text"
-                                            value={1}
-                                            readOnly
-                                            className="w-12 text-center border-none focus:outline-none"
-                                        />
-                                        <button
-                                            onClick={() => handleIncrement(item.id)}
-                                            className="px-2 py-1 text-gray-600 hover:text-gray-900 focus:outline-none"
-                                        >
-                                            +
-                                        </button>
-                                    </div>
+                                        {/* Quantity */}
+                                        <div className="inline-flex items-center border border-gray-300 rounded-md mb-5 lg:mb-0">
+                                            <button
+                                                onClick={() => handleDecrement(item.id)}
+                                                className="px-2 py-1 text-gray-600 hover:text-gray-900 focus:outline-none"
+                                            >
+                                                -
+                                            </button>
+                                            <input
+                                                type="text"
+                                                value={item.quantity}
+                                                readOnly
+                                                className="w-12 text-center border-none focus:outline-none"
+                                            />
+                                            <button
+                                                onClick={() => handleIncrement(item.id)}
+                                                className="px-2 py-1 text-gray-600 hover:text-gray-900 focus:outline-none"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
 
-                                    {/* price */}
-                                    <div className="flex items-center gap-x-1 child:text-green-500">
-                                        <h2 className=' font-Dana-Bold'>{(item.price).toLocaleString()}</h2>
-                                        <span className=' text-sm'>تومان</span>
-                                    </div>
+                                        {/* Price */}
+                                        <div className="flex items-center gap-x-1 child:text-green-500">
+                                            <h2 className='font-Dana-Bold'>{item.price.toLocaleString()}</h2>
+                                            <span className='text-sm'>تومان</span>
+                                        </div>
 
-                                    <span className=' flex items-center gap-x-1 absolute right-2 bottom-2 text-sm text-rose-600 font-Dana-Bold cursor-pointer hover:-translate-x-2 transition-transform'
-                                        onClick={() => handleMoveToNextPurchase(item.id)}>
-                                        انتقال به خرید بعدی
-                                        <FaCaretLeft />
+                                        <span className='flex items-center gap-x-1 absolute right-2 bottom-2 text-sm text-rose-600 font-Dana-Bold cursor-pointer hover:-translate-x-2 transition-transform'
+                                            onClick={() => handleMoveToNextPurchase(item.id)}>
+                                            انتقال به خرید بعدی
+                                            <FaCaretLeft />
+                                        </span>
+                                    </div>
+                                ))
+                            ) : (
+                                <div className='py-5 flex items-center justify-center gap-x-1 text-gray-500'>
+                                    <span>
+                                        <CiShoppingCart />
                                     </span>
+                                    <h1>سبد خرید شما خالی میباشد!</h1>
                                 </div>
-                            ))}
+                            )}
                         </div>
                     </div>
 
