@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { menuCategory } from '../Constant';
 import { IoBookOutline } from "react-icons/io5";
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
@@ -9,12 +9,26 @@ import AccounteBox from './AccounteBox';
 import { AuthContext } from '../Context/AuthContext';
 import { CiLogin } from "react-icons/ci";
 import { CartContext } from '../Context/CartContext';
+import Swal from 'sweetalert2';
 
 
 
 export default function NavBar() {
     const { isAuthenticated } = useContext(AuthContext);
     const { cartItems } = useContext(CartContext);
+    const navigate = useNavigate()
+    const clickHandler = () => {
+        if (isAuthenticated) {
+            navigate('/shopping-cart'); // استفاده از مسیر مطلق
+        } else {
+            Swal.fire({
+                icon: 'info',
+                title: 'ثبت نام یا ورود',
+                text: 'برای مشاهده سبد خرید اول باید وارد شوید یا ثبت نام کنید.',
+                confirmButtonText: 'باشه',
+            });
+        }
+    };
     return (
         <>
             {/* NAV BAR */}
@@ -48,7 +62,7 @@ export default function NavBar() {
                             ) : (
                                 <div className='flex items-center gap-x-4 text-gray-500 child:cursor-pointer child-hover:text-rose-600'>
                                     <Link to={'/register'} className=' text-lg flex items-center gap-x-1'>
-                                    <CiLogin className=' font-bold text-2xl' />
+                                        <CiLogin className=' font-bold text-2xl' />
                                         <span>ثبت‌ نام</span>
                                     </Link>
                                     <Link to={'/login'} className=' text-lg'>
@@ -56,11 +70,15 @@ export default function NavBar() {
                                     </Link>
                                 </div>
                             )}
-                            <Link to={'/shopping-cart'} className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'>
+                            <div
+                                onClick={clickHandler}
+                                className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'
+                            >
                                 <LocalMallOutlinedIcon />
                                 <span>سبد خرید</span>
                                 <span className='rounded-lg bg-slate-100 w-8 h-8 text-zinc-900 flex items-center justify-center text-lg '>{cartItems.length}</span>
-                            </Link>
+                            </div>
+
                         </div>
                     </div>
                 </div>
