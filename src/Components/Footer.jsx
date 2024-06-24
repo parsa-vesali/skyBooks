@@ -11,25 +11,25 @@ export default function Footer() {
             <div className='bg-rose-500 dark:bg-dark-700  text-white mt-20  py-8'>
                 <ul className="container w-full flex flex-col justify-start lg:flex-row items-start lg:items-center space-y-3 lg:justify-between lg:child:w-[20%] pb-8 border-b border-neutral-200 ">
                     <li className='flex items-center gap-x-2'>
-                        <img className='w-10 h10 hover:scale-110 transition-all ' src="./images/svg/book.png" alt="" />
+                        <img className='w-10 h10 hover:scale-110 transition-all ' src="../images/svg/book.png" alt="" />
                         <p>
                             آرشیو بزرگ کتاب‌های تخصصی
                         </p>
                     </li>
                     <li className='flex items-center gap-x-2'>
-                        <img className='w-10 h10 hover:scale-110 transition-all ' src="./images/svg/buy.png" alt="" />
+                        <img className='w-10 h10 hover:scale-110 transition-all ' src="../images/svg/buy.png" alt="" />
                         <p>
                             خرید امن و آسان
                         </p>
                     </li>
                     <li className='flex items-center gap-x-2'>
-                        <img className='w-10 h10 hover:scale-110 transition-all ' src="./images/svg/blue-t.png" alt="" />
+                        <img className='w-10 h10 hover:scale-110 transition-all ' src="../images/svg/blue-t.png" alt="" />
                         <p>
                             عدم اتمام موجودی
                         </p>
                     </li>
                     <li className='flex items-center gap-x-2'>
-                        <img className='w-10 h10 hover:scale-110 transition-all ' src="./images/svg/iran.png" alt="" />
+                        <img className='w-10 h10 hover:scale-110 transition-all ' src="../images/svg/iran.png" alt="" />
                         <p>
                             ارسال به سراسر کشور
                         </p>
@@ -78,7 +78,7 @@ export default function Footer() {
                     ساخته شده توسط
                     <a href="https://github.com/parsa-vesali" className=' text-sky-400'> parsavesali </a>
                 </h2>
-                <ul className='flex items-center justify-center gap-x-2 text-xl child:cursor-pointer'>
+                <ul className='flex items-center justify-center gap-x-2 text-xl child:cursor-pointer child-hover:-translate-y-1 child:transition-all child:duration-100'>
                     <li>
                         <span>
                             <FaGithub />

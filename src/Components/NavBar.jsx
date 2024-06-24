@@ -72,11 +72,11 @@ export default function NavBar() {
                             )}
                             <div
                                 onClick={clickHandler}
-                                className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500'
+                                className='flex items-center gap-x-3 px-2 p-2 bg-rose-600 rounded-lg text-white hover:bg-rose-500 cursor-pointer'
                             >
                                 <LocalMallOutlinedIcon />
                                 <span>سبد خرید</span>
-                                <span className='rounded-lg bg-slate-100 w-8 h-8 text-zinc-900 flex items-center justify-center text-lg '>{cartItems.length}</span>
+                                <span className='rounded-lg bg-slate-100 w-8 h-8 flex items-center justify-center text-gray-500'>{cartItems.length}</span>
                             </div>
 
                         </div>

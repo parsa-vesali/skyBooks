@@ -4,6 +4,8 @@ import LoginForm from "./Pages/LoginForm"
 import Categories from "./Pages/Categories"
 import ShoppingCart from "./Pages/ShoppingCart"
 import MainBook from "./Pages/MainBook"
+import Panel from "./Pages/Panel"
+
 
 let routes = [
     { path: '/', element: <Home /> },
@@ -12,7 +14,9 @@ let routes = [
     { path: '/categories/:category', element: <Categories /> },
     { path: '/shopping-cart', element: <ShoppingCart /> },
     { path: '/mainbook/:bookID', element: <MainBook /> },
+    { path: '/panel/:username', element: <Panel /> },
 ]
 
+    
 
 export default routes
