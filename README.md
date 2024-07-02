@@ -7,7 +7,7 @@
 2. ورود ثبت نام 
 3. پنل ادمین
 
-ادرس : https://my-sabzlearn.liara.run/
+ادرس : https://skybook.liara.run/
 
 <br>
 
