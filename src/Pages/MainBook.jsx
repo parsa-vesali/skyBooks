@@ -10,6 +10,13 @@ import { FaCalendar } from "react-icons/fa";
 import { FaLanguage } from "react-icons/fa6";
 import { FaBarcode } from "react-icons/fa";
 import { FaBook } from "react-icons/fa";
+import { SlSizeFullscreen } from "react-icons/sl";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { IoIosColorFilter } from "react-icons/io";
+import { FcInTransit } from "react-icons/fc";
+import { FcApproval } from "react-icons/fc";
+import GetBooks from '../Utils/GetBooks';
+import LatesBooks from '../Components/LatesBooks';
 
 
 export default function MainBook() {
@@ -29,7 +36,7 @@ export default function MainBook() {
       <div className="container my-24">
         <div className="grid grid-cols-12 gap-6 sm:gap-7 mt-7 lg:mt-20">
           {/* DATA RIGTH */}
-          <div className="col-span-12 lg:col-span-7 shadow-lg w-full px-8 py-4 flex justify-between  rounded-lg" dir='ltr'>
+          <div className="col-span-12 lg:col-span-7 shadow-lg w-full px-8 py-4 flex flex-col-reverse lg:flex-row justify-between  rounded-lg" dir='ltr'>
 
             <div className="flex flex-col items-start space-y-5">
 
@@ -81,8 +88,7 @@ export default function MainBook() {
 
             </div>
 
-
-            <div className="">
+            <div className="flex justify-center mb-10 lg:mb-0">
               <img src={mainBookDatas.img} className='w-40 h-60 object-cover' alt="" />
             </div>
           </div>
@@ -99,13 +105,13 @@ export default function MainBook() {
               <li className='flex items-center justify-between'>
                 <span>جلد سخت	</span>
                 <p className=' text-green-600'>
-                  ۳۲۲٬۰۰۰ <span className=' text-sm'>تومان</span>
+                  {mainBookDatas.price} <span className=' text-sm'>تومان</span>
                 </p>
               </li>
               <li className='flex items-center justify-between'>
                 <span>جلد نرم	</span>
                 <p className=' text-green-600'>
-                  ۳۲۲٬۰۰۰ <span className=' text-sm'>تومان</span>
+                  {mainBookDatas.price} <span className=' text-sm'>تومان</span>
                 </p>
               </li>
             </ul>
@@ -115,6 +121,38 @@ export default function MainBook() {
             </button>
           </div>
         </div>
+
+        <div className="grid grid-cols-12 gap-6 sm:gap-7 mt-7 lg:mt-8">
+          <div className="col-span-12 lg:col-span-7 shadow-lg w-full px-8 py-4 flex justify-between rounded-lg">
+            <ul className='flex flex-col gap-y-2 lg:flex-row items-center justify-between w-full child:text-sm font-Dana-Bold'>
+              <li className='flex items-center gap-x-2 '>
+                <SlSizeFullscreen className=' text-xl' /> قطع : B5
+              </li>
+              <li className='flex items-center gap-x-2'>
+                <IoDocumentTextOutline className=' text-xl' /> کیفیت متن: اورجینال انتشارات
+              </li>
+              <li className='flex items-center gap-x-2'>
+                <IoIosColorFilter className=' text-xl' />رنگ صفحات: دارای متن و کادر رنگی
+              </li>
+            </ul>
+          </div>
+          <div className="col-span-12 lg:col-span-5 space-y-8 shadow-lg px-8 py-4  rounded-lg">
+            <ul>
+              <ul className='flex  flex-col lg:flex-row gap-y-2 items-center justify-between w-full child:text-sm font-Dana-Bold'>
+                <li className='flex items-center gap-x-2 '>
+                  <FcInTransit className=' text-xl' /> پشتیبانی آنلاین حتی در تعطیلات
+                </li>
+                <li className='flex items-center gap-x-2'>
+                  <FcApproval className=' text-xl' />ارسال به سراسر کشور
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
+        <LatesBooks />
       </div>
       <Footer />
     </>
