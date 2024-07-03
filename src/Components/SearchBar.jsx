@@ -1,11 +1,16 @@
 import React, { useState, useMemo } from 'react';
 import { books } from '../Constant';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function SearchBar() {
     const [query, setQuery] = useState('');
+    let navigate = useNavigate();
 
+    const navigateToMainBook = (bookID) => {
+        window.scrollTo(0, 0); 
+        navigate(`/mainbook/${bookID}`);
+    }
     // Handler for clearing the query and closing the search results
     const clickHandler = () => {
         setQuery('');
@@ -43,7 +48,7 @@ export default function SearchBar() {
                     <ul className="absolute flex flex-wrap items-center justify-between gap-4 w-full p-4 bg-zinc-100 shadow-lg rounded-b-lg border-t border-gray-400">
                         {filteredBooks.length > 0 ? (
                             filteredBooks.map(book => (
-                                <li key={book.id} className="shadow hover:shadow-lg transition-all rounded-lg w-full lg:w-[48%]">
+                                <li onClick={() => navigateToMainBook(book.id)} key={book.id} className="shadow hover:shadow-lg transition-all rounded-lg w-full lg:w-[48%]">
                                     <Link to='/' className='flex items-center gap-x-2 p-1' dir='ltr'>
                                         <img className='w-16 h-16 object-cover rounded' src={book.img} alt={`${book.name}-img`} />
                                         <div className="flex flex-col text-start justify-start child:text-sm child:line-clamp-1">

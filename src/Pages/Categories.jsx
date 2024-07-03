@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import NavBar from '../Components/NavBar';
 import NavBarMobile from '../Components/NavBarMobile';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import SwapVertIcon from '@mui/icons-material/SwapVert';
 import { books } from '../Constant';
 import { IoIosArrowDown } from "react-icons/io";
@@ -32,6 +32,12 @@ const categories = [
 export default function Categories() {
     const { isAuthenticated } = useContext(AuthContext);
     let params = useParams();
+    let navigate = useNavigate();
+
+    const navigateToMainBook = (bookID) => {
+        window.scrollTo(0, 0); 
+        navigate(`/mainbook/${bookID}`);
+    }
     const { addToCart } = useCart(); 
     const [selectedOption, setSelectedOption] = useState('جدیدترین');
     const [expandedIndex, setExpandedIndex] = useState(null);
@@ -178,22 +184,22 @@ export default function Categories() {
                         <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-5 child:cursor-pointer">
                             {
                                 books.map(book => (
-                                    <div key={book.id} className="flex flex-col bg-white border border-neutral-100 rounded-2xl px-5 py-5 relative group h-80 mt-14 shadow-lg">
+                                    <div  key={book.id} className="flex flex-col bg-white border border-neutral-100 rounded-2xl px-5 py-5 relative group h-80 mt-14 shadow-lg">
                                         <div className="absolute -top-10 right-0 left-0 flex justify-center">
                                             <img className='max-h-52 transition-all duration-150 group-hover:-translate-y-1 group-hover:shadow-xl' src={book.img} alt="book" />
                                         </div>
-                                        <p className='bottom-14 right-5 left-5 absolute mt-2 h-14 text-sm font-bold text-center line-clamp-2' dir='ltr'>
+                                        <p onClick={() => navigateToMainBook(book.id)} className='bottom-14 right-5 left-5 absolute mt-2 h-14 text-sm font-bold text-center line-clamp-2' dir='ltr'>
                                             {book.name}
                                         </p>
 
                                         <div className="absolute bottom-3 right-5 left-5 flex items-center justify-between">
-                                            <span>
+                                            <span onClick={() => navigateToMainBook(book.id)}   >
                                                 <IoEye />
                                             </span>
                                             <span className='flex items-center gap-x-1'>
                                                 <p className='font-Dana-Bold'>
                                                     {book.price}
-                                                </p>
+                                                </p>  
                                                 <span className='text-sm text-gray-500'>تومان</span>
                                             </span>
 
